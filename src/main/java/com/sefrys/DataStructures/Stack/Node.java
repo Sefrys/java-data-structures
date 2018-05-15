@@ -4,19 +4,19 @@ package com.sefrys.DataStructures.Stack;
  * Created by Ireneusz Zagan on 15.05.18, 12:13
  * Contact: sefrys@gmail.com
  */
-class StackNode<T> {
+class Node<T> {
     private T data;
-    private StackNode<T> nextNode;
+    private Node<T> nextNode;
 
-    StackNode(T data) {
+    Node(T data) {
         this.data = data;
     }
 
-    public StackNode<T> getNextNode() {
+    public Node<T> getNextNode() {
         return nextNode;
     }
 
-    public void setNextNode(StackNode<T> nextNode) {
+    public void setNextNode(Node<T> nextNode) {
         this.nextNode = nextNode;
     }
 
