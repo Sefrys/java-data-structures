@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * Created by Ireneusz Zagan on 15.05.18, 12:18
  * Contact: sefrys@gmail.com
  */
-public class NodeStackTest {
+class NodeStackTest {
 
     @Test
     void testNodeStackPush() {
