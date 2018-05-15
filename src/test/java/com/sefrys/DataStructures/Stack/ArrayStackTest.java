@@ -14,7 +14,7 @@ class StackArrayTest {
 
     @Test
     void testStackArrayPush() {
-        StackArray<String> stack = new StackArray<>(10);
+        ArrayStack<String> stack = new ArrayStack<>(10);
 
         stack.push("Test_1");
         stack.push("Test_2");
@@ -24,7 +24,7 @@ class StackArrayTest {
 
     @Test
     void testGetRemainingSpace() {
-        StackArray<String> stack = new StackArray<>(10);
+        ArrayStack<String> stack = new ArrayStack<>(10);
 
 
         stack.push("Test_1");
@@ -35,7 +35,7 @@ class StackArrayTest {
 
     @Test
     void testPushToFullStack() {
-        StackArray<String> stack = new StackArray<>(1);
+        ArrayStack<String> stack = new ArrayStack<>(1);
 
         stack.push("Test_1");
 
@@ -45,7 +45,7 @@ class StackArrayTest {
 
     @Test
     void testPopFromStack() {
-        StackArray<String> stack = new StackArray<>(10);
+        ArrayStack<String> stack = new ArrayStack<>(10);
 
         stack.push("Test_1");
         stack.push("Test_2");
@@ -58,14 +58,14 @@ class StackArrayTest {
 
     @Test
     void testPopFromEmptyStack() {
-        StackArray<String> stack = new StackArray<>(10);
+        ArrayStack<String> stack = new ArrayStack<>(10);
 
         assertThrows(StackUnderflowException.class, stack::pop);
     }
 
     @Test
     void testPeekEmptyStack() {
-        StackArray<String> stack = new StackArray<>(10);
+        ArrayStack<String> stack = new ArrayStack<>(10);
 
         assertThrows(StackUnderflowException.class, stack::peek);
 
@@ -73,6 +73,6 @@ class StackArrayTest {
 
     @Test
     void testCreateStackWithNegativeSize() {
-        assertThrows(IllegalArgumentException.class, () -> new StackArray<>(-1));
+        assertThrows(IllegalArgumentException.class, () -> new ArrayStack<>(-1));
     }
 }
