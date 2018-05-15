@@ -16,6 +16,10 @@ class StackArray<T> implements Stack<T>{
 
     @SuppressWarnings("unchecked")
     StackArray(int arrayMaxSize) {
+        if(arrayMaxSize <= 0) {
+            throw new IllegalArgumentException("Stack maximum size must be greater than 0");
+        }
+
         this.array = (T[]) new Object[arrayMaxSize];
         this.arrayMaxSize = arrayMaxSize;
     }
