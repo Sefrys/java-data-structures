@@ -7,7 +7,7 @@ import com.sefrys.DataStructures.Exceptions.StackUnderflowException;
  * Created by Ireneusz Zagan on 15.05.18, 10:41
  * Contact: sefrys@gmail.com
  */
-class StackArray<T> implements Stack<T>{
+class ArrayStack<T> implements Stack<T>{
 
     private T[] array;
     private int arrayMaxSize;
@@ -15,7 +15,7 @@ class StackArray<T> implements Stack<T>{
     private int top = -1;
 
     @SuppressWarnings("unchecked")
-    StackArray(int arrayMaxSize) {
+    ArrayStack(int arrayMaxSize) {
         if(arrayMaxSize <= 0) {
             throw new IllegalArgumentException("Stack maximum size must be greater than 0");
         }
@@ -24,6 +24,7 @@ class StackArray<T> implements Stack<T>{
         this.arrayMaxSize = arrayMaxSize;
     }
 
+    @Override
     public T pop() {
         if(top <= -1) {
             throw new StackUnderflowException("Stack is empty – Cannot pop from empty stack.");
@@ -32,6 +33,7 @@ class StackArray<T> implements Stack<T>{
         return array[top--];
     }
 
+    @Override
     public T peek() {
         if(top <= -1) {
             throw new StackUnderflowException("Stack is empty – Cannot peek empty stack.");
@@ -40,6 +42,7 @@ class StackArray<T> implements Stack<T>{
         return array[top];
     }
 
+    @Override
     public void push(T element) {
         if(isFull()) {
             throw new StackCapacityReachedException("Stack is full with capacity " + arrayMaxSize + " of " + arrayCurrentCapacity);
