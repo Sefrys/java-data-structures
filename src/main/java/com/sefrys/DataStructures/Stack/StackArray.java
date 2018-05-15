@@ -1,6 +1,7 @@
 package com.sefrys.DataStructures.Stack;
 
 import com.sefrys.DataStructures.Exceptions.StackCapacityReachedException;
+import com.sefrys.DataStructures.Exceptions.StackUnderflowException;
 
 /**
  * Created by Ireneusz Zagan on 15.05.18, 10:41
@@ -20,16 +21,24 @@ class StackArray<T> implements Stack<T>{
     }
 
     public T pop() {
-        return null;
+        if(top <= -1) {
+            throw new StackUnderflowException("Stack is empty – Cannot pop from empty stack.");
+        }
+
+        return array[top--];
     }
 
     public T peek() {
-        return null;
+        if(top <= -1) {
+            throw new StackUnderflowException("Stack is empty – Cannot peek empty stack.");
+        }
+
+        return array[top];
     }
 
     public void push(T element) {
         if(isFull()) {
-            throw new StackCapacityReachedException();
+            throw new StackCapacityReachedException("Stack is full with capacity " + arrayMaxSize + " of " + arrayCurrentCapacity);
         }
         array[++top] = element;
         arrayCurrentCapacity++;
