@@ -70,4 +70,9 @@ class StackArrayTest {
         assertThrows(StackUnderflowException.class, stack::peek);
 
     }
+
+    @Test
+    void testCreateStackWithNegativeSize() {
+        assertThrows(IllegalArgumentException.class, () -> new StackArray<>(-1));
+    }
 }
