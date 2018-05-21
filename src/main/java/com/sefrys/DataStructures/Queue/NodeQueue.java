@@ -12,7 +12,7 @@ public class NodeQueue<T> implements Queue<T> {
     private Node<T> head;
     private Node<T> tail;
 
-    NodeQueue() {
+    public NodeQueue() {
         head = null;
         tail = null;
 
@@ -20,7 +20,9 @@ public class NodeQueue<T> implements Queue<T> {
 
     @Override
     public T dequeue() {
-        isEmpty();
+        if(isEmpty()){
+           throw new QueueUnderflowException("Empty queue");
+        }
         T element = head.getData();
         head = head.getNext();
         return element;
@@ -41,18 +43,20 @@ public class NodeQueue<T> implements Queue<T> {
     }
 
     T peekFirst() {
-        isEmpty();
+        if(isEmpty()){
+            throw new QueueUnderflowException("Empty queue");
+        }
         return head.getData();
     }
 
     T peekLast() {
-        isEmpty();
+        if(isEmpty()){
+            throw new QueueUnderflowException("Empty queue");
+        }
         return tail.getData();
     }
 
-    private void isEmpty() {
-        if (head == null) {
-            throw new QueueUnderflowException("Empty queue");
-        }
+    public boolean isEmpty() {
+        return head == null;
     }
 }
